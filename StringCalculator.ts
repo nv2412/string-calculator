@@ -24,7 +24,7 @@ export class StringCalculator {
 
         // Check for delimiters
         if (this.hasDelimiter(numbers)) {
-          this.processDelimiter(numbers);
+          this.processDelimiters(numbers);
         } else {
           // Split the input string by commas or \n and convert to an array of numbers.
           this.numberArray = numbers.split(/[\n,]+/).map(n => parseInt(n.trim(), 10));      
@@ -100,13 +100,16 @@ export class StringCalculator {
      * @param numbers The number string
      * 
      */
-    public processDelimiter(numbers: string): void {
+    public processDelimiters(numbers: string): void {
       // Remove occurrences of '//' from the string
       let numbersStr = numbers.replace('//', '');
 
       // Find delimiter and filter it to get number string with that delimiter only
       const tempArray = numbersStr.split(/[\n]+/).map(n => (n.trim()));
-      this.numberArray = tempArray[1].split(tempArray[0]).map(n => parseInt(n.trim(), 10));
+      let delimiters = tempArray[0].split(/\[|\]/).map(n => (n.trim()));
+      console.log(delimiters);
+      const regex = new RegExp(`[${delimiters.join('')}]`, 'g');
+      this.numberArray = tempArray[1].split(regex).map(n => parseInt(n.trim(), 10));
     }
 }
 

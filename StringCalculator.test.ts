@@ -33,7 +33,7 @@ describe('StringCalculator', () => {
     });
 
     // Multiple numbers with delimiter format //[delimiter]\n[numbers…] should also return sum
-    test('Must return the sum of multiple numbers', () => {
+    test('Must return the sum of multiple numbers split using delimiter', () => {
     expect(stringCalculator.add('//;\n1;2')).toBe(3);
     });
 
@@ -53,5 +53,10 @@ describe('StringCalculator', () => {
     // Multiple numbers in string test with numbers greater than thousand
     test('Must return the sum of multiple ignoring values greater than thousands', () => {
     expect(stringCalculator.add('3000,2,6')).toBe(8);
+    });
+
+    // Multiple numbers with any length delimiter format
+    test('Must return the sum of multiple numbers split using any length delimiter', () => {
+    expect(stringCalculator.add('//[***]\n1***2***3')).toBe(6);
     });
 });
