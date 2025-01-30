@@ -18,13 +18,13 @@
 
 <h3>Setup</h3>
 <p> 1: Clone the repository:</p>
-<div><code><span>clone</span>  https://github.com/nv2412/string-calculator.git </code></div><br>
+<div><code>clone https://github.com/nv2412/string-calculator.git </code></div><br>
 <p> 2: Go to the project directory:</p>
-<div><code><span>clone</span> cd string-calculator </code></div><br>
+<div><code>cd string-calculator </code></div><br>
 <p> 3: Install the dependencies:</p>
-<div><code><span>clone</span> npm install </code></div><br>
+<div><code>npm install </code></div><br>
 <p> 4: Compile TypeScript code:</p>
-<div><code><span>clone</span> npm run build </code></div><br>
+<div><code>npm run build </code></div><br>
 
 <h2>Usage</h2>
 <p>You can use the StringCalculator class to sum numbers in a string.</p>
