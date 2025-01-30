@@ -55,8 +55,13 @@ describe('StringCalculator', () => {
     expect(stringCalculator.add('3000,2,6')).toBe(8);
     });
 
-    // Multiple numbers with any length delimiter format
+    // Multiple numbers with any length delimiters
     test('Must return the sum of multiple numbers split using any length delimiter', () => {
     expect(stringCalculator.add('//[***]\n1***2***3')).toBe(6);
+    });
+
+    // Multiple numbers with multiple delimiters
+    test('Must return the sum of multiple numbers split using any length delimiter', () => {
+    expect(stringCalculator.add('//[*][%]\n1*2%3')).toBe(6);
     });
 });
