@@ -61,7 +61,12 @@ describe('StringCalculator', () => {
     });
 
     // Multiple numbers with multiple delimiters
-    test('Must return the sum of multiple numbers split using any length delimiter', () => {
+    test('Must return the sum of multiple numbers split with multiple delimiters', () => {
     expect(stringCalculator.add('//[*][%]\n1*2%3')).toBe(6);
+    });
+
+    // Multiple numbers with any length multiple delimiters
+    test('Must return the sum of multiple numbers split with multiple delimiters of any length', () => {
+    expect(stringCalculator.add('//[**][%%]\n1**2%%3')).toBe(6);
     });
 });
