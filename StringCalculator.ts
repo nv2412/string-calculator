@@ -11,6 +11,7 @@ class StringCalculator {
   }
 }
 
-console.log(StringCalculator.add("")); // 0
-console.log(StringCalculator.add("3,2,6")); // 12
+const stringCalculator = new StringCalculator();
+console.log(stringCalculator.add("")); // should be 0
+console.log(stringCalculator.add("3,2,6")); // should be 11
 
