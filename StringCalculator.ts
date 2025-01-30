@@ -14,9 +14,14 @@ export class StringCalculator {
 
       // Return the sum of the numbers.
       console.log(numberArray);
+      this.processNegatives(numberArray);
       return numberArray.reduce((sum, current) => sum + current, 0);
     }
 
+    /**
+     * Function to throw error
+     * 
+     */
     public throwError(message: string): never {
         throw new Error(message);
     }
@@ -30,10 +35,24 @@ export class StringCalculator {
     public hasDelimiter(numbers: string): boolean {
       if (numbers.includes('//')) {
           return true;
-      } else {
-         return false;
+      } else {  
+          return false;
       }
     }    
+
+    /**
+     * Function to check if negatives are present
+     * 
+     * @param numbers The number string
+     * 
+     */
+    public processNegatives(numberArray: number[]): void {
+      let negativeNumbers = numberArray.filter(num => num < 0);
+      if (negativeNumbers.length>0) {
+          console.log(negativeNumbers.join(','));
+          return this.throwError('Negatives not allowed :' + negativeNumbers.join(','));
+      }
+    }
 
     /**
      * Method to add numbers from a string having delimiter
@@ -50,20 +69,25 @@ export class StringCalculator {
       const tempArray = numbersStr.split(/[\n]+/).map(n => (n.trim()));
       numberArray = tempArray[1].split(tempArray[0]).map(n => parseInt(n.trim(), 10));
       console.log(numberArray);
+      this.processNegatives(numberArray);
       return numberArray.reduce((sum, current) => sum + current, 0);
     }
 
     /**
-     * Main funtion to process add on numbers strings
+     * Main function to process add on numbers strings
      * 
      * @param numbers The number string
      * 
      */
     public main(numbers: string): number {
-      if (this.hasDelimiter(numbers)) {
-          return this.addWithDelimiter(numbers);
+      try {
+        if (this.hasDelimiter(numbers)) {
+            return this.addWithDelimiter(numbers);
+        }
+        return this.add(numbers);
+      } catch(error) {
+        return error.message;
       }
-      return this.add(numbers);
     }
 }
 

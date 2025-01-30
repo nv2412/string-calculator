@@ -38,7 +38,7 @@ describe('StringCalculator', () => {
     });
 
     // Multiple numbers with one or more negative values should return error
-    // test('Must throw error with details of negative numbers', () => {
-    // expect(stringCalculator.main('1,-2,-3,4')).toThrow('Negatives not allowed');
-    // });
+    test('Must throw error with details of negative numbers', () => {
+    expect(stringCalculator.main('1,-2,-3,4')).toBe('Negatives not allowed :-2,-3');
+    });
 });
