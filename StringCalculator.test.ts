@@ -31,4 +31,9 @@ describe('StringCalculator', () => {
     test('Must return the sum of multiple numbers', () => {
     expect(stringCalculator.add('1\n2,3')).toBe(6);
     });
+
+    // Multiple numbers with delimiter format //[delimiter]\n[numbers…] should also return sum
+    test('Must return the sum of multiple numbers', () => {
+    expect(stringCalculator.add('//;\n1;2')).toBe(3);
+    });
 });
