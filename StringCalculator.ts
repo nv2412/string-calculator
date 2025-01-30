@@ -1,12 +1,20 @@
 export class StringCalculator {
     /**
+     * To store call count
+     */
+    private callCount: number = 0;
+
+    /**
      * Method to add numbers from a string
      * 
      * @param numbers The number string
      * 
      */
     public add(numbers: string): number {
-      if (!numbers) return 0; // If the input is an empty string, return 0.
+      this.getCalledCount();
+
+      // If the input is an empty string, return 0.
+      if (!numbers) return 0; 
       
       // Split the input string by commas or \n and convert to an array of numbers.
       let numberArray: any[] = [];
@@ -24,6 +32,14 @@ export class StringCalculator {
      */
     public throwError(message: string): never {
         throw new Error(message);
+    }
+
+    /**
+     * Function to count method call
+     * 
+     */
+    public getCalledCount(): number {
+      return ++this.callCount;
     }
   
     /**
@@ -61,6 +77,8 @@ export class StringCalculator {
      * 
      */
     public addWithDelimiter(numbers: string): number {
+      this.getCalledCount();
+
       // Remove occurrences of '//' from the string
       let numbersStr = numbers.replace('//', '');
 

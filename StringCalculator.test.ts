@@ -44,6 +44,9 @@ describe('StringCalculator', () => {
 
     // Testing the funtion call count
     test('Must provide count of function call', () => {
-    expect(stringCalculator.getCalledCount()).toBe(7);
+    stringCalculator.add('3,4');
+    stringCalculator.add('3,4,9');
+    stringCalculator.add('1');
+    expect(stringCalculator.getCalledCount()).toBe(4);
     });
 });
