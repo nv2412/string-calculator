@@ -41,4 +41,9 @@ describe('StringCalculator', () => {
     test('Must throw error with details of negative numbers', () => {
     expect(stringCalculator.main('1,-2,-3,4')).toBe('Negatives not allowed :-2,-3');
     });
+
+    // Testing the funtion call count
+    test('Must provide count of function call', () => {
+    expect(stringCalculator.getCalledCount()).toBe(7);
+    });
 });
