@@ -1,11 +1,19 @@
+/**
+ * StringCalculator is an simple class that owns the responsibility for adding numbers in a string.
+ * 
+ * @class
+ * @description This class contains basic attributes and methods for performing the desired operations.
+ */
 export class StringCalculator {
     /**
      * To store call count
+     * @type number
      */
     private callCount: number = 0;
 
     /**
      * Final array of numbers to sum
+     * @type array
      */
     private numberArray: any[] = [];
 
@@ -34,7 +42,7 @@ export class StringCalculator {
         console.log(this.numberArray);
         this.processNegatives();
         this.ignoreThousands();
-        return this.numberArray.reduce((sum, current) => sum + current, 0);
+        return this.numberArray.reduce((sum, n) => sum + n, 0);
       } catch(error) {
         return error.message;
       }
